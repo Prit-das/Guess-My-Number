@@ -39,6 +39,7 @@ body {
   transition: all 0.5s;
 }
 #navigate {
+  font-size: 12px;
   display: none;
 }
 #nav button:hover {
