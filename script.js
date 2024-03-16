@@ -16,7 +16,7 @@ document.querySelector('#score').innerText = score;
 
 // Creating a random number
 let hiddenNumber = Math.trunc(Math.random() * 20 + 1);
-// console.log(hiddenNumber);
+console.log(hiddenNumber);
 
 checkGuess.addEventListener('click', function () {
   count -= 1;
@@ -40,6 +40,7 @@ checkGuess.addEventListener('click', function () {
       document.querySelector('#container').style.backgroundColor = 'Green';
       document.querySelector('#score').innerText = count;
       playBtn.classList.add('blinkbutton');
+      document.querySelector('#navigate').style.visibility = 'visible';
     }
   } else {
     // When there are no chance left
@@ -54,6 +55,7 @@ playBtn.addEventListener('click', function () {
   hiddenNumber = Math.trunc(Math.random() * 20 + 1);
   // console.log(hiddenNumber);
   playBtn.classList.remove('blinkbutton');
+  document.querySelector('#navigate').style.visibility = 'hidden';
   document.querySelector('#container').style.backgroundColor = 'black';
   guess.value = '';
   document.querySelector('#hiddenNumber').innerText = '?';

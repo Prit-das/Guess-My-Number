@@ -23,7 +23,13 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-#nav button {
+#navele {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+#navele button {
   background-color: transparent;
   font-family: 'Play', sans-serif;
   padding: 10px 30px;
@@ -31,6 +37,9 @@ body {
   border: 2px solid white;
   cursor: pointer;
   transition: all 0.5s;
+}
+#navigate{
+  visibility: hidden;
 }
 #nav button:hover {
   background-color: white;
@@ -138,7 +147,7 @@ input::-webkit-inner-spin-button {
     background-color: white;
   }
 }
-.blinkbutton{
+.blinkbutton {
   animation: blink 1s ease infinite;
 }
 /*Responsive for all the devices*/
