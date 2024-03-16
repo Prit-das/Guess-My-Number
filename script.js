@@ -40,7 +40,7 @@ checkGuess.addEventListener('click', function () {
       document.querySelector('#container').style.backgroundColor = 'Green';
       document.querySelector('#score').innerText = count;
       playBtn.classList.add('blinkbutton');
-      document.querySelector('#navigate').style.visibility = 'visible';
+      document.querySelector('#navigate').style.display = 'flex';
     }
   } else {
     // When there are no chance left
@@ -55,7 +55,7 @@ playBtn.addEventListener('click', function () {
   hiddenNumber = Math.trunc(Math.random() * 20 + 1);
   // console.log(hiddenNumber);
   playBtn.classList.remove('blinkbutton');
-  document.querySelector('#navigate').style.visibility = 'hidden';
+  document.querySelector('#navigate').style.display = 'none';
   document.querySelector('#container').style.backgroundColor = 'black';
   guess.value = '';
   document.querySelector('#hiddenNumber').innerText = '?';
