@@ -5,11 +5,11 @@ const checkGuess = document.querySelector('#check');
 let startGuess = document.querySelector('#start');
 const chanceCount = document.querySelector('#chanceCount').innerText;
 
-// Creating Low Score
+// Creating a state variable for Remaining Chances
 let count = 20;
 document.querySelector('#chanceCount').innerText = count;
 
-// Creating High Score
+// Creating a state variable for High Score
 let score = 0;
 document.querySelector('#score').innerText = score;
 
@@ -23,9 +23,8 @@ checkGuess.addEventListener('click', function () {
 
   //Taking the input field value and converting to the number
   let guess = Number(document.querySelector('#guess').value);
-  count -= 1;
   document.querySelector('#chanceCount').innerText = count;
-  if (count > 1) {
+  if (count >= 1) {
     // When there is no value
     if (!guess) {
       startGuess.innerText = 'Please Input a Number 🔢';
@@ -38,10 +37,14 @@ checkGuess.addEventListener('click', function () {
     // When there is high value
     else if (guess > hiddenNumber) {
       startGuess.innerText = 'Your Guess is too High📈';
+      count--;
+      document.querySelector('#chanceCount').innerText = count;
     }
     // When there is low value
     else if (guess < hiddenNumber) {
       startGuess.innerText = 'Your Guess is too Low📉';
+      count--;
+      document.querySelector('#chanceCount').innerText = count;
     }
     // When match the value
     else if (guess === hiddenNumber) {
@@ -49,7 +52,7 @@ checkGuess.addEventListener('click', function () {
       document.querySelector('#hiddenNumber').innerText = hiddenNumber;
       score = count;
       document.querySelector('#container').classList.add('correctClass');
-      document.querySelector('#score').innerText = count;
+      document.querySelector('#score').innerText = score;
       playBtn.classList.add('blinkbutton');
       document.querySelector('#navigate').style.display = 'flex';
     }
@@ -58,7 +61,7 @@ checkGuess.addEventListener('click', function () {
   else {
     document.querySelector('#container').style.backgroundColor = 'maroon';
     startGuess.innerText = 'Game Over 🚫';
-    document.querySelector('#chanceCount').innerText = 0;
+    document.querySelector('#chanceCount').innerText = count;
     playBtn.classList.add('blinkbutton');
     document.querySelector('#navigate').style.display = 'flex';
   }
