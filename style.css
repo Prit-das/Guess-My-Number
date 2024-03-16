@@ -90,6 +90,10 @@ body {
   padding: 10px 30px;
   color: black;
 }
+.waring {
+  border: 1px solid red;
+  box-shadow: 0 0 10px rgb(255, 0, 0);
+}
 #left input::placeholder {
   font-family: 'Play', sans-serif;
   font-size: 20px;

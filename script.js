@@ -1,7 +1,6 @@
 'use strict';
 //All the items in variable
 const playBtn = document.querySelector('#playAgain');
-let guess = document.querySelector('#guess');
 const checkGuess = document.querySelector('#check');
 let startGuess = document.querySelector('#start');
 const chanceCount = document.querySelector('#chanceCount').innerText;
@@ -19,21 +18,33 @@ let hiddenNumber = Math.trunc(Math.random() * 20 + 1);
 console.log(hiddenNumber);
 
 checkGuess.addEventListener('click', function () {
+  //Undo the Caution effect
+  document.querySelector('#guess').classList.remove('waring');
+
+  //Taking the input field value and converting to the number
+  let guess = Number(document.querySelector('#guess').value);
   count -= 1;
   document.querySelector('#chanceCount').innerText = count;
   if (count > 1) {
-    if (guess.value == '') {
-      // When there is no value
+    // When there is no value
+    if (guess == '') {
       startGuess.innerText = 'Please Input a Number 🔢';
-      return startGuess;
-    } else if (guess.value > hiddenNumber) {
-      // When there is high value
+    }
+    // When Input is higher than 20
+    else if (guess > 20) {
+      document.querySelector('#guess').classList.add('waring');
+      startGuess.innerText = `Shouldn't be greater than 20 ⚠️`;
+    }
+    // When there is high value
+    else if (guess > hiddenNumber) {
       startGuess.innerText = 'Your Guess is too High📈';
-    } else if (guess.value < hiddenNumber) {
-      // When there is low value
+    }
+    // When there is low value
+    else if (guess < hiddenNumber) {
       startGuess.innerText = 'Your Guess is too Low📉';
-    } else if (guess.value == hiddenNumber) {
-      // When match the value
+    }
+    // When match the value
+    else if (guess === hiddenNumber) {
       startGuess.innerText = 'Hurry Your Guess is Matched🥳';
       document.querySelector('#hiddenNumber').innerText = hiddenNumber;
       score = count;
@@ -42,8 +53,9 @@ checkGuess.addEventListener('click', function () {
       playBtn.classList.add('blinkbutton');
       document.querySelector('#navigate').style.display = 'flex';
     }
-  } else {
-    // When there are no chance left
+  }
+  // When there are no chance left
+  else {
     document.querySelector('#container').style.backgroundColor = 'maroon';
     startGuess.innerText = 'Game Over 🚫';
     document.querySelector('#chanceCount').innerText = 0;
@@ -55,6 +67,7 @@ checkGuess.addEventListener('click', function () {
 // Reloading the game
 playBtn.addEventListener('click', function () {
   document.querySelector('#container').classList.remove('correctClass');
+  document.querySelector('#guess').classList.remove('waring');
   hiddenNumber = Math.trunc(Math.random() * 20 + 1);
   // console.log(hiddenNumber);
   playBtn.classList.remove('blinkbutton');
