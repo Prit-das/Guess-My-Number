@@ -48,6 +48,14 @@ checkGuess.addEventListener('click', function () {
     // When match the value
     else if (guess === hiddenNumber) {
       startGuess.innerText = 'Hurry Your Guess is Matched🥳';
+
+      //Implimenting Confetti
+      const jsConfetti = new JSConfetti();
+      jsConfetti.addConfetti({
+        confettiColors: [
+          '#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd', '#f9bec7',
+        ],
+      });
       document.querySelector('#hiddenNumber').innerText = hiddenNumber;
       score = count;
       document.querySelector('#container').classList.add('correctClass');
