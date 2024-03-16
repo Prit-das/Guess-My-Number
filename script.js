@@ -37,7 +37,8 @@ checkGuess.addEventListener('click', function () {
       startGuess.innerText = 'Hurry Your Guess is Matched🥳';
       document.querySelector('#hiddenNumber').innerText = hiddenNumber;
       score = count;
-      document.querySelector('#container').style.backgroundColor = 'Green';
+      // document.querySelector('#container').style.backgroundColor = 'Green';
+      document.querySelector('#container').classList.add('correctClass');
       document.querySelector('#score').innerText = count;
       playBtn.classList.add('blinkbutton');
       document.querySelector('#navigate').style.display = 'flex';
