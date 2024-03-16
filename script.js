@@ -24,6 +24,8 @@ checkGuess.addEventListener('click', function () {
   //Taking the input field value and converting to the number
   let guess = Number(document.querySelector('#guess').value);
   document.querySelector('#chanceCount').innerText = count;
+
+  //Validating the user guess
   if (count >= 1) {
     // When there is no value
     if (!guess) {
@@ -34,15 +36,12 @@ checkGuess.addEventListener('click', function () {
       document.querySelector('#guess').classList.add('waring');
       startGuess.innerText = `Shouldn't be greater than 20 ⚠️`;
     }
-    // When there is high value
-    else if (guess > hiddenNumber) {
-      startGuess.innerText = 'Your Guess is too High📈';
-      count--;
-      document.querySelector('#chanceCount').innerText = count;
-    }
-    // When there is low value
-    else if (guess < hiddenNumber) {
-      startGuess.innerText = 'Your Guess is too Low📉';
+    // When Guess is Wrong
+    else if (guess !== hiddenNumber) {
+      startGuess.innerText =
+        guess > hiddenNumber
+          ? 'Your Guess is too High📈'
+          : 'Your Guess is too Low📉';
       count--;
       document.querySelector('#chanceCount').innerText = count;
     }
@@ -83,3 +82,19 @@ playBtn.addEventListener('click', function () {
   document.querySelector('#chanceCount').innerText = count;
   document.querySelector('#score').innerText = score;
 });
+
+/* Taken out after line number 44 as the code does the same.
+
+  // When there is high value
+  else if (guess > hiddenNumber) {
+    startGuess.innerText = 'Your Guess is too High📈';
+    count--;
+    document.querySelector('#chanceCount').innerText = count;
+  }
+  // When there is low value
+  else if (guess < hiddenNumber) {
+    startGuess.innerText = 'Your Guess is too Low📉';
+    count--;
+    document.querySelector('#chanceCount').innerText = count;
+  }
+*/
