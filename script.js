@@ -27,7 +27,7 @@ checkGuess.addEventListener('click', function () {
   document.querySelector('#chanceCount').innerText = count;
   if (count > 1) {
     // When there is no value
-    if (guess == '') {
+    if (!guess) {
       startGuess.innerText = 'Please Input a Number 🔢';
     }
     // When Input is higher than 20
