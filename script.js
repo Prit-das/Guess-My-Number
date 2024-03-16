@@ -37,7 +37,6 @@ checkGuess.addEventListener('click', function () {
       startGuess.innerText = 'Hurry Your Guess is Matched🥳';
       document.querySelector('#hiddenNumber').innerText = hiddenNumber;
       score = count;
-      // document.querySelector('#container').style.backgroundColor = 'Green';
       document.querySelector('#container').classList.add('correctClass');
       document.querySelector('#score').innerText = count;
       playBtn.classList.add('blinkbutton');
@@ -45,7 +44,7 @@ checkGuess.addEventListener('click', function () {
     }
   } else {
     // When there are no chance left
-    document.querySelector('#container').style.backgroundColor = 'crimson';
+    document.querySelector('#container').style.backgroundColor = 'maroon';
     startGuess.innerText = 'Game Over 🚫';
     document.querySelector('#chanceCount').innerText = 0;
   }
@@ -53,6 +52,7 @@ checkGuess.addEventListener('click', function () {
 
 // Reloading the game
 playBtn.addEventListener('click', function () {
+  document.querySelector('#container').classList.remove('correctClass');
   hiddenNumber = Math.trunc(Math.random() * 20 + 1);
   // console.log(hiddenNumber);
   playBtn.classList.remove('blinkbutton');

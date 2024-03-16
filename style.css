@@ -138,8 +138,12 @@ input::-webkit-inner-spin-button {
   font-size: 20px;
 }
 /*For the correct backgroung*/
-.correctClass{
-  background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+.correctClass {
+  background: linear-gradient(
+    179.1deg,
+    rgb(43, 170, 96) 2.3%,
+    rgb(129, 204, 104) 98.3%
+  );
 }
 /*Animation for Blink the button*/
 @keyframes blink {
