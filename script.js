@@ -47,6 +47,8 @@ checkGuess.addEventListener('click', function () {
     document.querySelector('#container').style.backgroundColor = 'maroon';
     startGuess.innerText = 'Game Over 🚫';
     document.querySelector('#chanceCount').innerText = 0;
+    playBtn.classList.add('blinkbutton');
+    document.querySelector('#navigate').style.display = 'flex';
   }
 });
 
